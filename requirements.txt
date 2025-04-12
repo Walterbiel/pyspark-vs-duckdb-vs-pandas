@@ -1,0 +1,12 @@
+# Manipulação de dados
+pandas==2.2.1
+numpy==1.26.4
+
+# Engine de análise embutida
+duckdb==0.10.1
+
+# Processamento distribuído
+pyspark==3.5.1
+
+# Para salvar arquivos no formato Parquet
+pyarrow==15.0.2

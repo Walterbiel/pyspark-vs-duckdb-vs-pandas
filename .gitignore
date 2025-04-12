@@ -1,0 +1,5 @@
+# Ignorar arquivos grandes e diretórios locais
+*.csv
+*.so
+*.jar
+venv/
