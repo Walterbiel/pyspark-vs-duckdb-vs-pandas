@@ -48,42 +48,40 @@ Para cada categoria, calcular a média móvel de 7 dias
 Listar os 10 maiores valores para cada categoria
 
 ---
+## RESULTADOS
 
-## 🧪 Geração dos Dados
-
-```python
-import pandas as pd
-import numpy as np
-
-n = 50_000_000
-
-np.random.seed(42)
-
-df = pd.DataFrame({
-    'id': np.arange(n),
-    'categoria': np.random.choice(['A', 'B', 'C', 'D'], size=n),
-    'valor': np.random.uniform(0, 1000, size=n).round(2),
-    'data': pd.to_datetime('2023-01-01') + pd.to_timedelta(np.random.randint(0, 730, size=n), unit='D'),
-    'flag': np.random.choice([True, False], size=n)
-})
-
-df.to_parquet('dados_50_milhoes.parquet', index=False)
-
-```
+### Spark
+Base com 1 milhão de linhas:
+etapa                          |tempo_segundos    |
++-------------------------------+------------------+
+|Leitura e preparação           |5.102538347244263 |
+|Filtro + média                 |1.8560850620269775|
+|Contagem com condições         |0.7441680431365967|
+|Agrupamento por ano + categoria|1.0112082958221436|
+|Média móvel                    |0.379549503326416 |
+|Top 10 por categoria           |1.2397093772888184|
+|Tempo total                    |10.33382534980774 |
 
 
-🔥 Análise com PySpark
-python
-Copy
-Edit
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg
+### Pandas
+                             etapa  tempo_segundos
+0             Leitura e preparação        0.397176
+1                   Filtro + média        0.062554
+2           Contagem com condições        0.073110
+3  Agrupamento por ano + categoria        0.118819
+4                      Média móvel        0.442486
+5             Top 10 por categoria        0.387176
+6                      Tempo total        1.481698
 
-spark = SparkSession.builder.appName("Analise50Milhoes").getOrCreate()
-df_spark = spark.read.parquet("dados_50_milhoes.parquet")
+### duckdb
+                        etapa  tempo_segundos
+0                   Filtro + média        0.182756
+1           Contagem com condições        0.116865
+2  Agrupamento por ano + categoria        0.129946
+3                      Média móvel        0.530592
+4             Top 10 por categoria        0.365201
+5                      Tempo total        1.330935
 
-df_resultado = df_spark.groupBy("categoria").agg(avg("valor").alias("media_valor"))
-df_resultado.show()
 
 📊 Comparação entre Tecnologias
 Tecnologia	Pontos Fortes	Quando Usar
