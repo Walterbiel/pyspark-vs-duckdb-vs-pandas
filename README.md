@@ -1,6 +1,6 @@
 # 🚀 Análise com 500 Milhões de Linhas -- PySpark vs DuckDB vs Pandas
 
-Este projeto demonstra como lidar com grandes volumes de dados — 50 milhões de linhas — utilizando três tecnologias distintas: **PySpark**, **DuckDB** e **Pandas**.
+Este projeto demonstra como lidar com grandes volumes de dados utilizando três tecnologias distintas: **PySpark**, **DuckDB** e **Pandas**.
 
 O objetivo é mostrar os pontos fortes de cada abordagem para leitura, transformação e análise de dados volumosos, comparando suas **performances em um mesmo cenário**.
 
@@ -173,20 +173,41 @@ etapa  tempo_segundos
 
 ### 🔥 PySpark
 
-
+|etapa                          |tempo_segundos    |
++-------------------------------+------------------+
+|Leitura e preparação           |37.36648511886597 |
+|Filtro + média                 |35.93171310424805 |
+|Contagem com condições         |21.732516527175903|
+|Agrupamento por ano + categoria|48.21799921989441 |
+|Média móvel                    |10.60341739654541 |
+|Top 10 por categoria           |78.31700611114502 |
+|Tempo total                    |232.16963577270508
 
 ---
 
 ### 🔥 Pandas
 
-               
+    etapa  tempo_segundos
+0             Leitura e preparação       44.281432
+1                   Filtro + média        4.792721
+2           Contagem com condições        6.184318
+3  Agrupamento por ano + categoria       11.140221
+4                      Média móvel       64.974075
+5             Top 10 por categoria       57.383218
+6                      Tempo total      188.756314           
 
 
 ---
 
 ### 🔥 Duckdb
 
-         
+  etapa  tempo_segundos
+0                   Filtro + média        5.146259
+1           Contagem com condições        4.181640
+2  Agrupamento por ano + categoria        4.557449
+3                      Média móvel       86.124369
+4             Top 10 por categoria       61.358282
+5                      Tempo total      161.373033       
 
 ---
 
