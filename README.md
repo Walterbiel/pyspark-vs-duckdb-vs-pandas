@@ -46,11 +46,11 @@ Os dados foram gerados de forma sintética com `pandas` e `numpy`, simulando uma
 
 ---
 
-## 📈 Resultados
+## 📈 Resultados 1 milhão de linhas:
 
 ### 🔥 PySpark
 
-| Etapa                          | Tempo (segundos)      |
+| Etapa                          | Tempo (segundos)      |     
 |-------------------------------|------------------------|
 | Leitura e preparação          | 5.10                   |
 | Filtro + média                | 1.86                   |
@@ -88,6 +88,46 @@ Os dados foram gerados de forma sintética com `pandas` e `numpy`, simulando uma
 | **Tempo total**               | **1.33**               |
 
 ---
+
+## 📈 Resultados 10 milhões de linhas:
+
+### 🔥 PySpark
+
+|etapa                          |tempo_segundos    |
+|Leitura e preparação           |3.6852307319641113|
+|Filtro + média                 |3.2320289611816406|
+|Contagem com condições         |2.019388437271118 |
+|Agrupamento por ano + categoria|3.1459898948669434|
+|Média móvel                    |0.6740953922271729|
+|Top 10 por categoria           |4.471979141235352 |
+|Tempo total                    |17.22907590866089 |
+
+---
+
+### 🔥 Pandas
+
+                             etapa  tempo_segundos
+0             Leitura e preparação        3.516218
+1                   Filtro + média        0.410619
+2           Contagem com condições        0.500066
+3  Agrupamento por ano + categoria        0.930347
+4                      Média móvel        5.039826
+5             Top 10 por categoria        4.656672
+6                      Tempo total       15.054055
+
+---
+
+### 🔥 Duckdb
+
+0                   Filtro + média        0.514248
+1           Contagem com condições        0.463760
+2  Agrupamento por ano + categoria        0.479930
+3                      Média móvel        5.500448
+4             Top 10 por categoria        3.699626
+5                      Tempo total       10.830576
+
+---
+
 
 ## ⚖️ Comparativo entre Tecnologias
 
