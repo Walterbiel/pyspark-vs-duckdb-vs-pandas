@@ -186,6 +186,9 @@ Os dados foram gerados de forma sintética com `pandas` e `numpy`, simulando uma
 
 ---
 
+![output](https://github.com/user-attachments/assets/2a7f3377-5d32-4c15-bd75-b7bf107c96e4)
+
+
 ## ⚖️ Comparativo entre Tecnologias
 
 | Tecnologia | Pontos Fortes                                       | Quando Usar                                                  |
