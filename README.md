@@ -28,8 +28,6 @@ Os dados foram gerados de forma sintética com `pandas` e `numpy`, simulando uma
 4. **Média móvel (Janela de tempo)**
 5. **Top 10 por categoria**
 
-> ⚠️ Mais quatro etapas serão adicionadas em breve nesta seção.
-
 ---
 
 ## 📈 Resultados — 1 Milhão de Linhas
