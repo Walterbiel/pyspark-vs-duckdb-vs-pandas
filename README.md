@@ -132,7 +132,15 @@ Os dados foram gerados de forma sintética com `pandas` e `numpy`, simulando uma
 
 ### 🔥 PySpark
 
-
+|etapa                          |tempo_segundos    |
++-------------------------------+------------------+
+|Leitura e preparação           |18.326677560806274|
+|Filtro + média                 |17.46268367767334 |
+|Contagem com condições         |10.329632759094238|
+|Agrupamento por ano + categoria|24.116148710250854|
+|Média móvel                    |5.377209663391113 |
+|Top 10 por categoria           |36.55028533935547 |
+|Tempo total                    |112.16305923461914
 
 ---
 
@@ -158,6 +166,46 @@ etapa  tempo_segundos
 3                      Média móvel       30.713419
 4             Top 10 por categoria       22.877342
 5                      Tempo total       60.230179
+
+---
+
+## 📈 Resultados 100 milhões de linhas:
+
+### 🔥 PySpark
+
+
+
+---
+
+### 🔥 Pandas
+
+               
+
+
+---
+
+### 🔥 Duckdb
+
+         
+
+---
+
+## 📈 Resultados 500 milhões de linhas:
+
+### 🔥 PySpark
+
+
+
+---
+
+### 🔥 Pandas
+
+
+
+---
+
+### 🔥 Duckdb
+
 
 ---
 
